@@ -1,1 +1,67 @@
-Hello World
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    
+    <title>Tigre</title>
+    <link rel="stylesheet" href="assets/style.css">
+</head>
+
+<body>
+    
+
+
+    <div class="box">
+        <video autoplay muted loop>
+            <source src="java.mp4" type="video/mp4" alt="">
+        </video>
+    </div>
+
+<h1 style="color:rgb(255, 255, 255) ; font-size:80px">
+    ÉPOCHÉ  SUSPENSION
+</h1>
+
+    <body >
+    </body>
+    <style>
+        body {
+            background-image: url("effacer.jpg ");
+            margin-right: 20%;
+            
+        } 
+        
+        </style>
+
+        <script>
+            const myVid = document.querySelector('video');
+            document.querySelectorAll('.box').forEach(elem =>{
+                let x,y, width, height;
+                elem.onmouseenter=() => {
+                    const size = elem.getBoundingClientRect();
+
+                    x= size.x;
+                    y= size.y;
+                    width = size.width;
+                    height = size.height;
+                };
+
+                elem.onmousover = e =>{
+                    const horizontal = ( e.clientX - x) / width*100;
+                    const vertical = ( e.clientY - y) / height*100;
+
+                    elem.style.setProperty('--x', horizontal + '%');
+                    elem.style.setProperty('--y', vertical + '%');
+                };
+            });
+            document.addEventListener('mousemove', function(e) {
+                let xPos = - e.clientX / 4;
+                let YPos = - e.clientY / 4;
+                    myVid.style.transform = `translate(${xPos}px, ${YPos}px )`
+                });
+
+
+            </script>
+
+</body>
+
+</html>
